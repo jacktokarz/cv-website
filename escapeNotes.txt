@@ -1,0 +1,34 @@
+Chess:
+
+Parts:
+
+
+Maze:
+Tape instructions somewhere. Tape a maze elsewhere so that they can't be looked at by the same person.
+Hide keys for decoding the instructions. 
+- Reduce all # to largest factor.
+- Take modulo 4 of words' letter count 1= N, 2= S, 3= W, 0= E.
+Parts: 4
+
+
+Braille:
+Hide the braille around the room of D I C E
+The final answer is 4935
+There's a braille chart somewhere (from a different puzzle)
+But maybe that's toom any steps. There'd have to be something indicating it is numbered. OH it'll be a radio of 1-9 :)
+Parts: 5
+
+
+I am... :
+
+Parts: 
+
+
+VS:
+On the website, some things vs other things, with parts missing.
+Hidden: - the missing combatants (pictures), duh
+- the order of winners, ie left, left, right, left...
+Parts: 5 - 7
+
+Super Mario Maker?
+Parts: 1?

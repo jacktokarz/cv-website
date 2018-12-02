@@ -1,0 +1,308 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="PSPad editor, www.pspad.com">
+  <title>Search Party!</title>
+
+<!--Bootstrap-->
+<!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+  body {
+    background: url("nightBackground.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  #resume {
+    display: none;
+  }
+  #CV-image {
+    opacity: 0.8;
+      filter: alpha(opacity=80); /* For IE8 and earlier */
+  }
+  #piece {
+    height:200px;
+    width:140px;
+    display:none;
+    z-index:2;
+  }
+    #outline {
+      position:absolute;
+      display:none;
+      width:6000px;
+      height:5000px;
+      float:left;
+      z-index:0;
+    }
+    button {
+      position:absolute;
+      z-index=3;
+    }
+    #red {              
+      background-color:green;
+      font-size: 24px;
+      margin-top:150px;
+      margin-left: 400px;
+      width:100px;
+      height:100px;
+      border-radius:50px; 
+    }
+    .piece {
+      display:none;
+      position:absolute;
+      z-index:1;
+      background-color:gray;
+      top:500px;
+      left: 800px;
+      width:80px;
+      height:100px;
+      border: black solid;
+    }
+    #topL {
+      display:none;
+      position:relative;
+      float:left;
+      top:60px;
+      left:20px;
+    }
+    #newTopL {
+    opacity: 0.9;
+    text-align: center;
+    border: 2px solid;
+    border-radius: 10px;
+    background-color: #F2F2F2;
+    padding: 10px;
+    display: none;
+      position:relative;
+      float:left;
+      top:60px;
+      left:20px;
+    }
+    #topR {
+      display:none;
+      position:relative;
+      float:right;
+      top: 60px;
+      left:4500px;
+    }
+    #botL {
+      display:none;
+      position:relative;
+      float:left;
+      top:4930px;
+    
+    }
+    #botR {
+      position:relative;
+      float:right;
+      display:none;
+      top: 4930px;
+      left:4570px;
+    
+    }
+    #UI {
+    opacity: 0.9;
+    text-align: center;
+    border: 2px solid;
+    border-radius: 10px;
+    background-color: #F2F2F2;
+    padding: 10px;
+
+      position:fixed;
+      top:100px;
+      left:200px;
+      font-size:1.4em;
+      z-index:1;
+      font-weight: bold;
+    }
+    #counter {
+    opacity: 0.9;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: #F2F2F2;
+    padding: 5px;
+
+      position:fixed;
+      top:10px;
+      left:20px;
+      color:black;
+      font-size:1.4em;
+      z-index:1;
+      display: none;
+    }
+  </style>
+
+  </head>
+  <body>
+
+  <div id= "navi" class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="">Make another choice</a>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mine">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>       
+        </button>
+        
+      </div>
+      
+      <div class="collapse navbar-collapse" id="mine">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="about.html">Games</a></li>
+          <li><a href="photos.html">Writing</a></li>
+          <li><a href="photos.html">Websites</a></li>
+          <li><a href="photos.html">Skills/ Accomplishments</a></li>
+          <li><a href="CONTACT.php">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+    <div id="UI">Oh no, my resume got ripped up! Please help me find all of the pieces.</div>
+  
+    <div id="outline">
+    </div>
+    <div id="topL">Good luck!
+    </div>
+    <div id="newTopL">Well Done!
+    </div>
+    <div id="topR">Keep Looking
+    </div>
+    <div id="botL">Not Here
+    </div>
+    <div id="botR">You can do it!
+    </div>
+    <div id="counter">9 left</div>
+    <button id="red">Start</button>
+
+    <button class="piece" id="seek">Seek</button>
+    <img class= "piece" id="piece1" src="piece1.png" onclick= "found('piece1')">
+    <img class= "piece" id="piece2" src="piece2.png" onclick= "found('piece2')">
+    <img class= "piece" id="piece3" src="piece3.png" onclick= "found('piece3')">
+    <img class= "piece" id="piece4" src="piece4.png" onclick= "found('piece4')">
+    <img class= "piece" id="piece5" src="piece5.png" onclick= "found('piece5')">
+    <img class= "piece" id="piece6" src="piece6.png" onclick= "found('piece6')">
+    <img class= "piece" id="piece7" src="piece7.png" onclick= "found('piece7')">
+    <img class= "piece" id="piece8" src="piece8.png" onclick= "found('piece8')">
+    <img class= "piece" id="piece9" src="piece9.png" onclick= "found('piece9')">
+
+<div id="resume">
+  <!--<div position="absolute">
+     <h1>Hi I'm Jack, this site encapulates all there is of me and more!</h1>
+  </div> -->
+
+    <img id="CV-image" class="col-md-6 col-md-offset-3" src="CV2016.png" alt="my resume">
+
+</div>
+
+
+<script type="text/javascript">
+    
+      var gotten=0;
+
+      var pieces= ["piece1", "piece2", "piece3", "piece4", "piece5", 
+        "piece6", "piece7", "piece8", "piece9"];
+      var i=0;
+      var k=0;
+      var p=0;
+      var px="px";
+      var xValues= [1];
+      var yValues= [1];
+
+      function makeX() {
+      	return Math.floor((Math.random() * 5000) + 50);
+      }
+      function makeY() {
+      	return Math.floor((Math.random() * 4000) + 20);
+      }
+	function placement(){
+        var x=makeX();
+        for(k=0; k<xValues.length; k=k) {
+      		if(x<=xValues[i]+20 && x>=xValues[i]-20){
+      			x=makeX();
+      			k=0;
+      		}
+      		else {
+      			k++;
+      		}
+      	}
+      	xValues.push(x);
+        var y= makeY();
+        for(k=0; k<yValues.length; k=k) {
+      		if(y<=yValues[i]+20 && y>=yValues[i]-20){
+      			y=makeY();
+      			k=0;
+      		}
+      		else {
+      			k++;
+      		}
+      	}
+        yValues.push(y);
+    }
+
+    function setPositions() {
+        for(i=0; i<pieces.length; i++) {
+	        placement();
+    	}
+    }
+    setPositions();
+
+    document.getElementById("red").onclick=function() {
+
+        document.getElementById("red").style.display="none";
+        document.getElementById("navi").style.display="none";
+        document.getElementById("UI").style.display="none";
+        document.body.style.background= "white";
+        document.getElementById("outline").style.display="inline";
+        document.getElementById("topL").style.display="inline";
+        document.getElementById("topR").style.display="inline";
+        document.getElementById("botL").style.display="inline";
+        document.getElementById("botR").style.display="inline";
+        document.getElementById("counter").style.display="inline";
+        for(p=0;p<pieces.length;p++) {
+	        var left=xValues[p+1].toString();
+	        var down=yValues[p+1].toString();
+	        var width= left.concat(px);
+	        var height= down.concat(px);
+	        document.getElementById(pieces[p]).style.marginLeft= width;
+	        document.getElementById(pieces[p]).style.marginTop= height;
+	        document.getElementById(pieces[p]).style.display="inline";
+    	}
+    }
+        
+    function found(gotcha) {
+        gotten++;
+        if(gotten < pieces.length) {
+        	document.getElementById("counter").innerHTML=(pieces.length-gotten)+" left";
+        	document.getElementById(gotcha).style.display="none";
+        }
+        else {
+        	document.getElementById(gotcha).style.display="none";
+	        document.getElementById("outline").style.display="none";
+	        document.getElementById("counter").style.display="none";
+	        document.getElementById("topL").style.display="none";
+          document.getElementById("topR").style.display="none";
+	        document.getElementById("botL").style.display="none";
+	        document.getElementById("botR").style.display="none";
+
+        	document.getElementById("newTopL").style.display= "inline";
+        	document.body.style.background= "url('nightBackground.jpg') no-repeat center center fixed";
+    		document.body.style.backgroundSize= "cover";
+        	document.getElementById("resume").style.display= "inline";
+        }
+    }
+
+</script>
+
+  </body>
+</html>

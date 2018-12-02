@@ -1,0 +1,212 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="PSPad editor, www.pspad.com">
+  <title>Click Quick!</title>
+
+<!--Bootstrap-->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<style type="text/css">
+  body {
+    background: url("nightBackground.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  #text {
+    opacity: 0.9;
+    text-align: center;
+    border: 2px solid;
+    border-radius: 10px;
+    background-color: #F2F2F2;
+    max-width: 250px;
+    max-height: 80px;
+    padding: 20px 0 20px 0;
+    margin-left: 10px;
+    font-size: 18px;
+  }
+  button {
+    margin-right: 10px;
+    border: 2px solid #424242;
+    border-radius: 5px;
+    background-color: #D8D8D8;
+    font-size: 24px;
+    text-decoration: underline;
+    opacity: 0.95;
+      filter: alpha(opacity=95);
+  }
+  #resume {
+    display: none;
+  }
+  #CV-image {
+    opacity: 0.8;
+      filter: alpha(opacity=80); /* For IE8 and earlier */
+  }
+  #piece {
+    height:auto;
+    width:8%;
+    display:none;
+    z-index:2;
+  }
+  #count {
+    float: center;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    display: none;
+        opacity: 0.95;
+      filter: alpha(opacity=95);
+  }
+
+</style>
+
+  </head>
+  <body>
+
+  <div class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="">Make another choice</a>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mine">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>       
+        </button>
+        
+      </div>
+      
+      <div class="collapse navbar-collapse" id="mine">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="about.html">Games</a></li>
+          <li><a href="photos.html">Writing</a></li>
+          <li><a href="photos.html">Websites</a></li>
+          <li><a href="photos.html">Skills/ Accomplishments</a></li>
+          <li><a href="CONTACT.php">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<div id="text">
+  <button id="ready" onclick="start()">Start!</button>
+  <select id="difficulty" onchange="changeDifficulty()">
+    <option value="starter" selected="selected">Difficulty</option>
+    <option value= "easy">Easy</option>
+    <option value="medium">Medium</option>
+    <option value="hard">Hard</option>
+  </select>
+  <p id="count">Get Clicking!</p>
+</div>
+<img id="piece" src="piece1.jpg">
+
+<div id="resume">
+  <!--<div position="absolute">
+     <h1>Hi I'm Jack, this site encapulates all there is of me and more!</h1>
+  </div> -->
+
+    <img id="CV-image" class="col-md-6 col-md-offset-3" src="CV2016.png" alt="my resume">
+
+</div>
+
+
+<script type="text/javascript">
+        var go;
+        var betweenTime=1000; var createdTime; var reactionTime;
+        var poofTime = 1600; var timeoutTime= 500; var makeTime = 2800;
+        var ran;
+        var l; var d;
+        var left="";
+        var hei="";
+        var gotten=false;
+        var pieces= ["piece1.png", "piece2.png", "piece3.png", "piece4.png", "piece5.png", 
+          "piece6.png", "piece7.png", "piece8.png", "piece9.png"];
+
+function changeDifficulty() {
+  if(document.getElementById('difficulty').value == "easy") {
+     poofTime= 1800;
+     makeTime= 3200;
+     document.getElementById("piece").style.width= "10%";
+  }
+  else if(document.getElementById('difficulty').value == "medium") {
+     poofTime= 1600;
+     makeTime= 2800;
+     document.getElementById("piece").style.width= "8%";
+  }
+  else if(document.getElementById('difficulty').value == "hard") {
+     poofTime= 1300;
+     makeTime= 2500;
+     document.getElementById("piece").style.width= "6%";
+  }
+}
+        function long() {
+          return (Math.random()*(innerWidth -300) +100);
+        }
+        function lat() {
+            return (Math.random()*(innerHeight -350));
+        }
+        function choosePic() {
+          return (pieces[ Math.floor( Math.random()*pieces.length) ]);
+        }
+        function poof() {
+            setTimeout(function() {
+              document.getElementById("piece").style.display="none";
+            }, poofTime);
+        }
+        function makeBox() {
+          l= long();
+          left= l +"px";
+          d= lat();
+          hei= d+"px";
+          ran= choosePic();
+          setTimeout(function() {
+            gotten=false;
+            document.getElementById("piece").src=ran;
+            document.getElementById("piece").style.marginLeft = left;
+            document.getElementById("piece").style.marginTop= hei;
+            document.getElementById("piece").style.display="block";
+            createdTime=Date.now();
+          }, timeoutTime);
+          poof();
+        }
+
+        function start(){
+          go= setInterval(function() {
+            makeBox();
+          }, makeTime);
+          document.getElementById("ready").style.display="none";
+          document.getElementById("difficulty").style.display="none";
+          document.getElementById("count").style.display="block";
+        }
+
+        document.getElementById("piece").onclick=function() {
+          if(!gotten) {
+            gotten=true;
+            document.getElementById("piece").src="check.png";
+            document.getElementById("piece").style.border="2px black";
+            pieces.splice(ran, 1);
+            if(pieces.length<=0) {
+              clearInterval(go);
+              document.getElementById("count").innerHTML="Congratulations!";
+              document.getElementById("resume").style.display= "block";
+            }
+            else {
+              document.getElementById("count").innerHTML="You have "+pieces.length+" left!";
+            }
+          }
+        }
+
+</script>
+
+  </body>
+</html>
